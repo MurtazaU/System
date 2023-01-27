@@ -163,18 +163,7 @@ if (isset($_GET['page'])) {
 
 		<div class="main-wrapper">
 
-			<div class="breadcrumb-wrapper">
 
-				<div class="container">
-
-					<ol class="breadcrumb-list booking-step">
-						<li><a href="employers.php">Employers</a></li>
-						<li><span><?php echo "$compname"; ?></span></li>
-					</ol>
-
-				</div>
-
-			</div>
 
 
 			<div class="section sm">

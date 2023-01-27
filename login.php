@@ -211,14 +211,6 @@ include 'constants/check-login.php';
 
 
 
-													<div class="col-sm-12 col-md-12">
-														<div class="login-box-link-action">
-															<a data-toggle="modal" onclick="reset_text()" href="#forgotPasswordModal">Forgot password?</a>
-														</div>
-													</div>
-
-
-
 
 												</div>
 
@@ -231,49 +223,6 @@ include 'constants/check-login.php';
 										</div>
 									</form>
 
-									<div id="forgotPasswordModal" class="modal fade login-box-wrapper" tabindex="-1" style="display: none;" data-backdrop="static" data-keyboard="false" data-replace="true">
-
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-											<h4 class="modal-title text-center">Restore your forgotten password</h4>
-										</div>
-
-										<div class="modal-body">
-											<div class="row gap-20">
-
-												<div class="col-sm-12 col-md-12">
-													<p class="mb-20">Enter the email address associated to your account, we will send you the link to reset your password</p>
-												</div>
-
-												<div class="col-sm-12 col-md-12">
-
-													<div class="form-group">
-
-														<label>Email Address</label>
-														<input id="mymail" autocomplete="off" name="email" class="form-control" placeholder="Enter your email address" type="email" required>
-													</div>
-
-												</div>
-
-
-
-												<div class="col-sm-12 col-md-12">
-													<div class="login-box-box-action">
-														Return to <a data-dismiss="modal">Log-in</a>
-														<p id="data"></p>
-													</div>
-
-												</div>
-
-											</div>
-										</div>
-
-										<div class="modal-footer text-center">
-											<button onclick="update(mymail.value)" type="submit" class="btn btn-primary">Restore</button>
-											<button type="button" data-dismiss="modal" class="btn btn-primary btn-inverse">Close</button>
-										</div>
-
-									</div>
 
 								</div>
 
