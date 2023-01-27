@@ -108,10 +108,6 @@ if (isset($_GET['country']) && ($_GET['category'])) {
 							</li>
 
 
-							<li>
-								<a href="contact.php">Contact Us</a>
-							</li>
-
 						</ul>
 
 					</div>
@@ -151,10 +147,7 @@ if (isset($_GET['country']) && ($_GET['category'])) {
 
 					<div class="row gap-20">
 
-						<div class="col-sm-6 col-md-6">
-							<a href="register.php?p=Employer" class="btn btn-facebook btn-block mb-5-xs">Register as Employer</a>
-						</div>
-						<div class="col-sm-6 col-md-6">
+						<div class="col-sm-12 col-md-12">
 							<a href="register.php?p=Employee" class="btn btn-facebook btn-block mb-5-xs">Register as Employee</a>
 						</div>
 
@@ -531,7 +524,6 @@ if (isset($_GET['country']) && ($_GET['category'])) {
 										<ul class="footer-menu clearfix">
 											<li><a href="./">Home</a></li>
 											<li><a href="job-list.php">Job List</a></li>
-											<li><a href="contact.php">Contact Us</a></li>
 											<li><a href="#">Go to top</a></li>
 
 										</ul>
