@@ -33,10 +33,10 @@ if (isset($_GET['empid'])) {
 				$about = $row['about'];
 				$empavatar = $row['avatar'];
 				$current_year = date('Y');
-				$myage = $current_year - $byear;
 				$myedu = $row['education'];
 				$mytitle = $row['title'];
 				$mymail = $row['email'];
+				$myresume = $row['resume'];
 			}
 		}
 	} catch (PDOException $e) {
@@ -44,6 +44,17 @@ if (isset($_GET['empid'])) {
 } else {
 	header("location:./");
 }
+
+if (isset($_REQUEST['download-resume'])) {
+	echo $myresume;
+	$filename = $myresume;
+
+	header("Content-type: application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+
+	header("Content-Disposition: attachment; filename=$filename");
+
+	readfile("./employee/resume/$filename");
+};
 
 ?>
 
@@ -53,18 +64,7 @@ if (isset($_GET['empid'])) {
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Nightingale Jobs - <?php echo "$myfname"; ?> <?php echo "$mylname"; ?></title>
-	<meta name="description" content="Online Job Management / Job Portal" />
-	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
-	<meta name="author" content="BwireSoft">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?php echo "$actual_link"; ?>/images/banner.jpg" />
-	<meta property="og:image:secure_url" content="https://<?php echo "$actual_link"; ?>/images/banner.jpg" />
-	<meta property="og:image:type" content="image/jpeg" />
-	<meta property="og:image:width" content="500" />
-	<meta property="og:image:height" content="300" />
-	<meta property="og:image:alt" content="Bwire Jobs" />
-	<meta property="og:description" content="Online Job Management / Job Portal" />
+	<title>JustEntryLevel Jobs - <?php echo "$myfname"; ?> <?php echo "$mylname"; ?></title>
 
 	<link rel="shortcut icon" href="images/ico/favicon.png">
 
@@ -134,17 +134,6 @@ if (isset($_GET['empid'])) {
 
 							</li>
 
-							<li>
-								<a href="employers.php">Employers</a>
-							</li>
-
-							<li>
-								<a href="employees.php">Employees</a>
-							</li>
-
-							<li>
-								<a href="contact.php">Contact Us</a>
-							</li>
 
 						</ul>
 
@@ -185,10 +174,8 @@ if (isset($_GET['empid'])) {
 
 					<div class="row gap-20">
 
-						<div class="col-sm-6 col-md-6">
-							<a href="register.php?p=Employer" class="btn btn-facebook btn-block mb-5-xs">Register as Employer</a>
-						</div>
-						<div class="col-sm-6 col-md-6">
+
+						<div class="col-sm-12 col-md-12">
 							<a href="register.php?p=Employee" class="btn btn-facebook btn-block mb-5-xs">Register as Employee</a>
 						</div>
 
@@ -253,10 +240,7 @@ if (isset($_GET['empid'])) {
 											<h4 class="heading">Birth Day:</h4>
 											<?php echo "$bdate"; ?>/<?php echo "$bmonth"; ?>/<?php echo "$byear"; ?>
 										</li>
-										<li>
-											<h4 class="heading">Age:</h4>
-											<?php echo "$myage"; ?>-year-old
-										</li>
+
 										<li>
 											<h4 class="heading">Education:</h4>
 											<?php echo "$myedu"; ?> in <?php echo "$mytitle"; ?>
@@ -275,263 +259,11 @@ if (isset($_GET['empid'])) {
 
 									<p><?php echo "$about"; ?></p>
 
-									<div class="row">
-
-										<div class="col-sm-12">
-
-											<h3>Education</h3>
-
-											<ul class="employee-detail-list">
-												<?php
-												require 'constants/db_config.php';
-												try {
-													$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-													$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-													$stmt = $conn->prepare("SELECT * FROM tbl_academic_qualification WHERE member_no = :empid ORDER BY id");
-													$stmt->bindParam(':empid', $empid);
-													$stmt->execute();
-													$result = $stmt->fetchAll();
-													$rec = count($result);
-													if ($rec == "0") {
-													} else {
-
-														foreach ($result as $row) {
-												?>
-															<li>
-																<h5><?php echo $row['course']; ?> </h5>
-																<p class="text-muted font-italic">Level - <?php echo $row['level']; ?> , <?php echo $row['timeframe']; ?><span class="font600 text-primary"> <?php echo $row['institution']; ?></span> <?php echo $row['country']; ?></p>
-																<p><a target="_blank" class="btn btn-primary btn-sm mb-5 mb-0-sm" href="view-certificate.php?id=<?php echo $row['id']; ?>">View Certificate</a></p>
-															</li>
-												<?php
-														}
-													}
-												} catch (PDOException $e) {
-												} ?>
-
-
-
-											</ul>
-
-										</div>
-
-
-
-									</div>
-
-									<h3>Work Experience</h3>
-									<ul class="employee-detail-list">
-										<?php
-										require 'constants/db_config.php';
-										try {
-											$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-											$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-											$stmt = $conn->prepare("SELECT * FROM tbl_experience WHERE member_no = :empid ORDER BY id");
-											$stmt->bindParam(':empid', $empid);
-											$stmt->execute();
-											$result = $stmt->fetchAll();
-											$rec = count($result);
-											if ($rec == "0") {
-											} else {
-
-												foreach ($result as $row) {
-										?>
-													<li>
-														<h5><?php echo $row['title']; ?> </h5>
-														<p class="text-muted font-italic"><?php echo $row['start_date']; ?> to <?php echo $row['end_date']; ?><span class="font600 text-primary"> <?php echo $row['institution']; ?></span></p>
-														<p>Supervisor : <span class="font600 text-primary"> <?php echo $row['supervisor']; ?></span> , Phone : <span class="font600 text-primary"> <?php echo $row['supervisor_phone']; ?></span> <br><?php echo $row['duties']; ?></p>
-													</li>
-										<?php
-												}
-											}
-										} catch (PDOException $e) {
-										} ?>
-
-
-
-									</ul>
-
-
-
-									<h3>Training & Workshop</h3>
-									<ul class="employee-detail-list">
-										<?php
-										require 'constants/db_config.php';
-										try {
-											$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-											$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-											$stmt = $conn->prepare("SELECT * FROM tbl_training WHERE member_no = :empid ORDER BY id");
-											$stmt->bindParam(':empid', $empid);
-											$stmt->execute();
-											$result = $stmt->fetchAll();
-											$rec = count($result);
-											if ($rec == "0") {
-											} else {
-
-												foreach ($result as $row) {
-													$certificate = $row['certificate'];
-										?>
-													<li>
-														<h5><?php echo $row['training']; ?> </h5>
-														<p class="text-muted font-italic"><span class="font600 text-primary"> <?php echo $row['institution']; ?></span> <?php echo $row['timeframe']; ?></p>
-														<?php
-														if ($certificate == "") {
-														} else {
-														?>
-															<p><a target="_blank" class="btn btn-primary btn-sm mb-5 mb-0-sm" href="view-certificate-b.php?id=<?php echo $row['id']; ?>">View Certificate</a></p>
-														<?php
-														}
-
-														?>
-
-													</li>
-										<?php
-												}
-											}
-										} catch (PDOException $e) {
-										} ?>
-
-
-
-									</ul>
-
-									<h3>Professional Qualifications</h3>
-									<ul class="employee-detail-list">
-										<?php
-										require 'constants/db_config.php';
-										try {
-											$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-											$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-											$stmt = $conn->prepare("SELECT * FROM tbl_professional_qualification WHERE member_no = :empid ORDER BY id");
-											$stmt->bindParam(':empid', $empid);
-											$stmt->execute();
-											$result = $stmt->fetchAll();
-											$rec = count($result);
-											if ($rec == "0") {
-											} else {
-
-												foreach ($result as $row) {
-													$certificate = $row['certificate'];
-										?>
-													<li>
-														<h5><?php echo $row['title']; ?> </h5>
-														<p class="text-muted font-italic"><?php echo $row['timeframe']; ?><span class="font600 text-primary"> <?php echo $row['institution']; ?></span> <?php echo $row['country']; ?></p>
-														<p><a target="_blank" class="btn btn-primary btn-sm mb-5 mb-0-sm" href="view-certificate-c.php?id=<?php echo $row['id']; ?>">View Certificate</a></p>
-													</li>
-										<?php
-												}
-											}
-										} catch (PDOException $e) {
-										} ?>
-
-
-									</ul>
-
-
-									<h3>Other Attachments</h3>
-									<ul class="employee-detail-list">
-										<?php
-										require 'constants/db_config.php';
-										try {
-											$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-											$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-											$stmt = $conn->prepare("SELECT * FROM tbl_other_attachments WHERE member_no = :empid ORDER BY id");
-											$stmt->bindParam(':empid', $empid);
-											$stmt->execute();
-											$result = $stmt->fetchAll();
-											$rec = count($result);
-											if ($rec == "0") {
-											} else {
-
-												foreach ($result as $row) {
-										?>
-													<li>
-														<h5><?php echo $row['title']; ?> </h5>
-														<p class="font600 text-primary"><?php echo $row['issuer']; ?></p>
-														<p><a target="_blank" class="btn btn-primary btn-sm mb-5 mb-0-sm" href="view-attachment.php?id=<?php echo $row['id']; ?>">View Attachment</a></p>
-													</li>
-										<?php
-												}
-											}
-										} catch (PDOException $e) {
-										} ?>
-
-
-
-									</ul>
-
-
-									<h3>Language Proficiency</h3>
-									<ul class="employee-detail-list">
-										<?php
-										require 'constants/db_config.php';
-										try {
-											$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-											$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-											$stmt = $conn->prepare("SELECT * FROM tbl_language WHERE member_no = :empid ORDER BY id");
-											$stmt->bindParam(':empid', $empid);
-											$stmt->execute();
-											$result = $stmt->fetchAll();
-											$rec = count($result);
-											if ($rec == "0") {
-											} else {
-
-												foreach ($result as $row) {
-										?>
-													<li>
-														<h5><?php echo $row['language']; ?> </h5>
-														<p class="text-muted font-italic">Speaking <span class="font600 text-primary"> <?php echo $row['speak']; ?></span> , Reading <span class="font600 text-primary"> <?php echo $row['reading']; ?></span> , Writing <span class="font600 text-primary"> <?php echo $row['writing']; ?></span></p>
-													</li>
-										<?php
-												}
-											}
-										} catch (PDOException $e) {
-										} ?>
-
-
-									</ul>
-
-
-									<h3>Referees</h3>
-									<ul class="list-icon">
-										<?php
-										require 'constants/db_config.php';
-										try {
-											$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-											$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-											$stmt = $conn->prepare("SELECT * FROM tbl_referees WHERE member_no = :empid ORDER BY id");
-											$stmt->bindParam(':empid', $empid);
-											$stmt->execute();
-											$result = $stmt->fetchAll();
-											$rec = count($result);
-											if ($rec == "0") {
-											} else {
-
-												foreach ($result as $row) {
-										?>
-													<li>
-
-														<div class="icon">
-
-															<i class="flaticon-line-icon-set-user-1"></i>
-
-														</div>
-
-														<h5><?php echo $row['ref_name']; ?></h5>
-														<p><?php echo $row['ref_title']; ?> <span class="font600 text-primary"><?php echo $row['institution']; ?></span></p>
-														<p>Email : <a href="mailto:<?php echo $row['ref_mail']; ?>"><?php echo $row['ref_mail']; ?></a></p>
-														<p>Phone : <a href="tel:<?php echo $row['ref_phone']; ?>"><?php echo $row['ref_phone']; ?></a></p>
-
-													</li>
-										<?php
-												}
-											}
-										} catch (PDOException $e) {
-										} ?>
-
-
-
-
-									</ul>
+									<form method="POST">
+										<button class="btn btn-primary" name="download-resume">
+											Download Resume
+										</button>
+									</form>
 
 								</div>
 
@@ -563,8 +295,7 @@ if (isset($_GET['empid'])) {
 								<div class="col-sm-6 col-md-4">
 
 									<div class="footer-about-us">
-										<h5 class="footer-title">About Nightingale Jobs</h5>
-										<p>Nightingale Jobs is a job portal, online job management system developed by Nathaniel Nkrumah for his project in february 2018.</p>
+										<h5 class="footer-title">About JustEntryLevel Jobs</h5>
 
 									</div>
 
@@ -575,9 +306,6 @@ if (isset($_GET['empid'])) {
 									<ul class="footer-menu clearfix">
 										<li><a href="./">Home</a></li>
 										<li><a href="job-list.php">Job List</a></li>
-										<li><a href="employers.php">Employers</a></li>
-										<li><a href="employees.php">Employees</a></li>
-										<li><a href="contact.php">Contact Us</a></li>
 										<li><a href="#">Go to top</a></li>
 
 									</ul>
@@ -590,10 +318,9 @@ if (isset($_GET['empid'])) {
 
 						<div class="col-sm-12 col-md-3 mt-30-sm">
 
-							<h5 class="footer-title">Nightingale Jobs Contact</h5>
+							<h5 class="footer-title">JustEntryLevel Jobs Contact</h5>
 
 							<p>Address : Takoradi, School Junction PO.BOX AX40</p>
-							<p>Email : <a href="mailto:nightingale.nath2@gmail.com">nightingale.nath2@gmail.com</a></p>
 							<p>Phone : <a href="tel:+233546607474">+233 546 607 474</a></p>
 
 
@@ -614,15 +341,12 @@ if (isset($_GET['empid'])) {
 
 						<div class="col-sm-4 col-md-4">
 
-							<p class="copy-right">&#169; Copyright <?php echo date('Y'); ?> Nightingale Vision Software</p>
+							<p class="copy-right">&#169; Copyright <?php echo date('Y'); ?> JustEntryLevel Vision Software</p>
 
 						</div>
 
 						<div class="col-sm-4 col-md-4">
 
-							<ul class="bottom-footer-menu">
-								<li><a>Developed by Nathaniel Nkrumah</a></li>
-							</ul>
 
 						</div>
 
