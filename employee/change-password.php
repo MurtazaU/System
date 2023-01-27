@@ -139,26 +139,8 @@ if ($user_online == "true") {
 									<li class="">
 										<a href="./"><i class="fa fa-user"></i> CV / Profile</a>
 									</li>
-									<li class="">
+									<li class="active">
 										<a href="change-password.php"><i class="fa fa-key"></i> Change Password</a>
-									</li>
-									<li>
-										<a href="qualifications.php"><i class="fa fa-trophy"></i> Professional Qualifications</a>
-									</li>
-									<li>
-										<a href="language.php"><i class="fa fa-language"></i> Language Proficiency</a>
-									</li>
-									<li>
-										<a href="training.php"><i class="fa fa-gears"></i> Training & Workshop</a>
-									</li>
-									<li>
-										<a href="academic.php"><i class="fa fa-graduation-cap"></i> Academic Qualifications</a>
-									</li>
-									<li>
-										<a href="experience.php"><i class="fa fa-briefcase"></i> Working Experience</a>
-									</li>
-									<li>
-										<a href="applied-jobs.php"><i class="fa fa-bookmark"></i> Applied Jobs</a>
 									</li>
 								</ul>
 
