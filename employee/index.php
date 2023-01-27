@@ -136,7 +136,7 @@ if ($user_online == "true") {
 
 
 								<ul class="admin-user-menu clearfix">
-									<li class="active">
+									<li class="">
 										<a href="./"><i class="fa fa-user"></i> CV / Profile</a>
 									</li>
 									<li class="">
