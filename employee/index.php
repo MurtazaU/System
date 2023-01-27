@@ -3,6 +3,19 @@
 <?php
 require '../constants/settings.php';
 require 'constants/check-login.php';
+require '../constants/db_config.php';
+
+try {
+	$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+	$stmt = $conn->prepare("SELECT * FROM tbl_countries ORDER BY country_name");
+	$stmt->execute();
+	$result = $stmt->fetchAll();
+} catch (PDOException $e) {
+}
+
 
 if ($user_online == "true") {
 	if ($myrole == "employee") {
@@ -11,6 +24,21 @@ if ($user_online == "true") {
 	}
 } else {
 	header("location:../");
+}
+// Resume Upload
+if (isset($_REQUEST['update-resume'])) {
+	// File Variables
+	$file_name = $_FILES['resume']['name'];
+	$file_tmp = $_FILES['resume']['tmp_name'];
+
+	// Moving File
+	move_uploaded_file($file_tmp, "./resume/" . $file_name);
+
+	$sql = $conn->prepare("UPDATE tbl_users SET resume = ? WHERE email = ?");
+	$sql->bindParam(1, $file_name);
+	$sql->bindParam(2, $myemail);
+
+	$sql->execute();
 }
 ?>
 
@@ -155,7 +183,6 @@ if ($user_online == "true") {
 								<div class="admin-section-title">
 
 									<h2>Profile</h2>
-									<p>Your last loged-in: <span class="text-primary"><?php echo "$mylogin"; ?></span></p>
 
 								</div>
 
@@ -354,26 +381,13 @@ if ($user_online == "true") {
 												<select name="country" required class="selectpicker show-tick form-control" data-live-search="true">
 													<option disabled value="">Select</option>
 													<?php
-													require '../constants/db_config.php';
-													try {
-														$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-														$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-														$stmt = $conn->prepare("SELECT * FROM tbl_countries ORDER BY country_name");
-														$stmt->execute();
-														$result = $stmt->fetchAll();
-
-														foreach ($result as $row) {
+													foreach ($result as $row) {
 													?> <option <?php if ($mycountry == $row['country_name']) {
 																	print ' selected ';
 																} ?> value="<?php echo $row['country_name']; ?>"><?php echo $row['country_name']; ?></option> <?php
 
-																																							}
-																																						} catch (PDOException $e) {
-																																						}
+																																							} ?>
 
-																																								?>
 												</select>
 											</div>
 
@@ -413,27 +427,13 @@ if ($user_online == "true") {
 
 								</form><br>
 
-								<form action="app/new-dp.php" method="POST" enctype="multipart/form-data">
-									<div class="row gap-20">
-										<div class="col-sm-12 col-md-12">
+								<form method="POST" enctype="multipart/form-data">
+									<div class="col-sm-12 col-md-12">
 
-											<div class="form-group bootstrap3-wysihtml5-wrapper">
-												<label>Display Image</label>
-												<input accept="image/*" type="file" name="image" required>
-											</div>
-
-										</div>
-
-										<div class="clear"></div>
-
+										<label>Your CV / Resume</label>
+										<input class="form-control" accept=".pdf, .docx, text/plain" type="file" name="resume" required>
 										<div class="col-sm-12 mt-10">
-											<button type="submit" class="btn btn-primary">Update</button>
-											<?php
-											if ($myavatar == null) {
-											} else {
-											?><a onclick="return confirm('Are you sure you want to delete your avatar ?')" class="btn btn-primary btn-inverse" href="app/drop-dp.php">Delete</a> <?php
-																																																}
-																																																	?>
+											<button type="submit" class="btn btn-primary" name="update-resume">Update</button>
 										</div>
 									</div>
 								</form>
