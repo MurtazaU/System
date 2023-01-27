@@ -130,10 +130,7 @@ include 'constants/check-login.php';
 
 					<div class="row gap-20">
 
-						<div class="col-sm-6 col-md-6">
-							<a href="register.php?p=Employer" class="btn btn-facebook btn-block mb-5-xs">Register as Employer</a>
-						</div>
-						<div class="col-sm-6 col-md-6">
+						<div class="col-sm-12 col-md-12">
 							<a href="register.php?p=Employee" class="btn btn-facebook btn-block mb-5-xs">Register as Employee</a>
 						</div>
 
@@ -158,7 +155,82 @@ include 'constants/check-login.php';
 					<h1>your bright future starts here now</h1>
 					<p>Finding your next job or career on JustEntryLevel Jobs</p>
 
+					<div class="main-search-form-wrapper">
 
+						<form action="job-list.php" method="GET" autocomplete="off">
+
+							<div class="form-holder">
+								<div class="row gap-0">
+
+									<div class="col-xss-6 col-xs-6 col-sm-6">
+										<select class="form-control" name="category" required />
+										<option value="">-Select category-</option>
+										<?php
+										require 'constants/db_config.php';
+										try {
+											$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+											$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+											$stmt = $conn->prepare("SELECT * FROM tbl_categories ORDER BY category");
+											$stmt->execute();
+											$result = $stmt->fetchAll();
+
+											foreach ($result as $row) {
+										?>
+
+												<option style="color:black" value="<?php echo $row['category']; ?>"><?php echo $row['category']; ?></option>
+										<?php
+											}
+											$stmt->execute();
+										} catch (PDOException $e) {
+										}
+
+										?>
+
+										</select>
+									</div>
+
+									<div class="col-xss-6 col-xs-6 col-sm-6">
+										<select class="form-control" name="country" required />
+										<option value="">-Select country-</option>
+										<?php
+										require 'constants/db_config.php';
+										try {
+											$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+											$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+											$stmt = $conn->prepare("SELECT * FROM tbl_countries ORDER BY country_name");
+											$stmt->execute();
+											$result = $stmt->fetchAll();
+
+											foreach ($result as $row) {
+										?>
+
+												<option style="color:black" value="<?php echo $row['country_name']; ?>"><?php echo $row['country_name']; ?></option>
+										<?php
+											}
+											$stmt->execute();
+										} catch (PDOException $e) {
+										}
+
+										?>
+
+										</select>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="btn-holder">
+								<button name="search" value="✓" type="submit" class="btn"><i class="ion-android-search"></i></button>
+							</div>
+
+						</form>
+
+					</div>
 
 				</div>
 
