@@ -156,84 +156,9 @@ include 'constants/check-login.php';
 				<div class="container">
 
 					<h1>your bright future starts here now</h1>
-					<p>Finding your next job or career on Nightingale Jobs</p>
-
-					<div class="main-search-form-wrapper">
-
-						<form action="job-list.php" method="GET" autocomplete="off">
-
-							<div class="form-holder">
-								<div class="row gap-0">
-
-									<div class="col-xss-6 col-xs-6 col-sm-6">
-										<select class="form-control" name="category" required />
-										<option value="">-Select category-</option>
-										<?php
-										require 'constants/db_config.php';
-										try {
-											$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-											$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+					<p>Finding your next job or career on JustEntryLevel Jobs</p>
 
 
-											$stmt = $conn->prepare("SELECT * FROM tbl_categories ORDER BY category");
-											$stmt->execute();
-											$result = $stmt->fetchAll();
-
-											foreach ($result as $row) {
-										?>
-
-												<option style="color:black" value="<?php echo $row['category']; ?>"><?php echo $row['category']; ?></option>
-										<?php
-											}
-											$stmt->execute();
-										} catch (PDOException $e) {
-										}
-
-										?>
-
-										</select>
-									</div>
-
-									<div class="col-xss-6 col-xs-6 col-sm-6">
-										<select class="form-control" name="country" required />
-										<option value="">-Select country-</option>
-										<?php
-										require 'constants/db_config.php';
-										try {
-											$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-											$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-											$stmt = $conn->prepare("SELECT * FROM tbl_countries ORDER BY country_name");
-											$stmt->execute();
-											$result = $stmt->fetchAll();
-
-											foreach ($result as $row) {
-										?>
-
-												<option style="color:black" value="<?php echo $row['country_name']; ?>"><?php echo $row['country_name']; ?></option>
-										<?php
-											}
-											$stmt->execute();
-										} catch (PDOException $e) {
-										}
-
-										?>
-
-										</select>
-									</div>
-
-								</div>
-
-							</div>
-
-							<div class="btn-holder">
-								<button name="search" value="✓" type="submit" class="btn"><i class="ion-android-search"></i></button>
-							</div>
-
-						</form>
-
-					</div>
 
 				</div>
 
@@ -445,8 +370,7 @@ include 'constants/check-login.php';
 									<div class="col-sm-6 col-md-4">
 
 										<div class="footer-about-us">
-											<h5 class="footer-title">About Nightingale Jobs</h5>
-											<p>Nightingale Jobs is a job portal, online job management system developed by Nathaniel Nkrumah for his project in february 2018.</p>
+											<h5 class="footer-title">About JustEntryLevel Jobs</h5>
 
 										</div>
 
@@ -457,8 +381,6 @@ include 'constants/check-login.php';
 										<ul class="footer-menu clearfix">
 											<li><a href="./">Home</a></li>
 											<li><a href="job-list.php">Job List</a></li>
-											<li><a href="employers.php">Employers</a></li>
-											<li><a href="employees.php">Employees</a></li>
 											<li><a href="contact.php">Contact Us</a></li>
 											<li><a href="#">Go to top</a></li>
 
@@ -472,10 +394,9 @@ include 'constants/check-login.php';
 
 							<div class="col-sm-12 col-md-3 mt-30-sm">
 
-								<h5 class="footer-title">Nightingale Jobs Contact</h5>
+								<h5 class="footer-title">JustEntryLevel Jobs Contact</h5>
 
 								<p>Address : Takoradi, School Junction PO.BOX AX40</p>
-								<p>Email : <a href="mailto:nightingale.nath2@gmail.com">nightingale.nath2@gmail.com</a></p>
 								<p>Phone : <a href="tel:+233546607474">+233 546 607 474</a></p>
 
 
@@ -496,15 +417,12 @@ include 'constants/check-login.php';
 
 							<div class="col-sm-4 col-md-4">
 
-								<p class="copy-right">&#169; Copyright <?php echo date('Y'); ?> Nightingale Vision Software</p>
+								<p class="copy-right">&#169; Copyright <?php echo date('Y'); ?> JustEntryLevel Vision Software</p>
 
 							</div>
 
 							<div class="col-sm-4 col-md-4">
 
-								<ul class="bottom-footer-menu">
-									<li><a>Developed by Nathaniel Nkrumah</a></li>
-								</ul>
 
 							</div>
 
