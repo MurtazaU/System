@@ -177,12 +177,12 @@ ul.nav-mini.sign-in li a:hover {
     font-size: 16px;
     padding-top: 0;
     padding-bottom: 0;
+    text-transform: capitalize;
     -webkit-transition: all 0.3s ease-in-out 0s;
     -moz-transition: all 0.3s ease-in-out 0s;
     -ms-transition: all 0.3s ease-in-out 0s;
     -o-transition: all 0.3s ease-in-out 0s;
     transition: all 0.3s ease-in-out 0s;
-    text-transform: lowercase;
     letter-spacing: 1px;
     padding-left: 14px;
     color: #FFF;
