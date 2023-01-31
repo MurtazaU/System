@@ -95,17 +95,6 @@ if ($today_date > $conv_date) {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>JustEntryLevel Jobs - <?php echo "$jobtitle"; ?></title>
-	<meta name="description" content="Online Job Management / Job Portal" />
-	<meta name="keywords" content="job, work, resume, applicants, application, employee, employer, hire, hiring, human resource management, hr, online job management, company, worker, career, recruiting, recruitment" />
-	<meta name="author" content="BwireSoft">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content="http://<?php echo "$actual_link"; ?>/images/banner.jpg" />
-	<meta property="og:image:secure_url" content="https://<?php echo "$actual_link"; ?>/images/banner.jpg" />
-	<meta property="og:image:type" content="image/jpeg" />
-	<meta property="og:image:width" content="500" />
-	<meta property="og:image:height" content="300" />
-	<meta property="og:image:alt" content="Bwire Jobs" />
-	<meta property="og:description" content="Online Job Management / Job Portal" />
 
 	<link rel="shortcut icon" href="images/ico/favicon.png">
 
@@ -341,10 +330,10 @@ if ($today_date > $conv_date) {
 									<?php
 									if ($user_online == true) {
 										if ($jobexpired == true) {
-											print '<button class="btn btn-primary disabled btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-calendar"></i> This job is expired</button>';
+											print '<button class="btn btn-primary disabled btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-calendar"></i> This job has been expired</button>';
 										} else {
 											if ($myrole == "employee") {
-												print '<button'; ?> onclick="update(this.value)" <?php print ' value="' . $jobid . '" class="btn btn-primary btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-pencil"></i> Apply this job</button>';
+												print '<button'; ?> onclick="update(this.value)" <?php print ' name="job_apply_post" value="' . $jobid . '" class="btn btn-primary btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-pencil"></i> Apply at this job</button>';
 																								} else {
 																									print '<button class="btn btn-primary disabled btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-padlock"></i> Login as employee to apply</button>';
 																								}
@@ -359,6 +348,7 @@ if ($today_date > $conv_date) {
 									<p id="data"></p>
 
 								</div>
+
 
 								<div class="tab-style-01">
 
