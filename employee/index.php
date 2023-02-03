@@ -449,91 +449,34 @@ if (isset($_REQUEST['update-resume'])) {
 			</div>
 
 		</div>
-
 		<footer class="footer-wrapper">
-
 			<div class="main-footer">
-
 				<div class="container">
-
 					<div class="row">
-
 						<div class="col-sm-12 col-md-9">
-
 							<div class="row">
-
-								<div class="col-sm-6 col-md-4">
-
-									<div class="footer-about-us">
-										<h5 class="footer-title">About JustEntryLevel Jobs</h5>
-
-									</div>
-
-								</div>
-
 								<div class="col-sm-6 col-md-5 mt-30-xs">
 									<h5 class="footer-title">Quick Links</h5>
 									<ul class="footer-menu clearfix">
-										<li><a href="../">Home</a></li>
-										<li><a href="../job-list.php">Job List</a></li>
+										<li><a href="./">Home</a></li>
+										<li><a href="job-list.php">Job List</a></li>
 										<li><a href="#">Go to top</a></li>
-
 									</ul>
-
 								</div>
-
 							</div>
-
 						</div>
-
-						<div class="col-sm-12 col-md-3 mt-30-sm">
-
-							<h5 class="footer-title">JustEntryLevel Jobs Contact</h5>
-
-							<p>Address : Takoradi, School Junction PO.BOX AX40</p>
-							<p>Phone : <a href="tel:+233546607474">+233 546 607 474</a></p>
-
-
-						</div>
-
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div class="bottom-footer">
-
 				<div class="container">
-
 					<div class="row">
-
-						<div class="col-sm-4 col-md-4">
-
-							<p class="copy-right">&#169; Copyright <?php echo date('Y'); ?> JustEntryLevel Vision Software</p>
-
+						<div class="col-sm-12 col-md-12 text-center">
+							<p class="copy-right">&#169; Copyright <?php echo date('Y'); ?> Jobs.JustEntryLevel</p>
 						</div>
-
-						<div class="col-sm-4 col-md-4">
-
-
-						</div>
-
-						<div class="col-sm-4 col-md-4">
-							<ul class="bottom-footer-menu for-social">
-								<li><a href="<?php echo "$tw"; ?>"><i class="ri ri-twitter" data-toggle="tooltip" data-placement="top" title="twitter"></i></a></li>
-								<li><a href="<?php echo "$fb"; ?>"><i class="ri ri-facebook" data-toggle="tooltip" data-placement="top" title="facebook"></i></a></li>
-								<li><a href="<?php echo "$ig"; ?>"><i class="ri ri-instagram" data-toggle="tooltip" data-placement="top" title="instagram"></i></a></li>
-							</ul>
-						</div>
-
 					</div>
-
 				</div>
-
 			</div>
-
 		</footer>
 
 	</div>

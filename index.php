@@ -426,11 +426,6 @@ include 'constants/check-login.php';
 						<div class="row">
 							<div class="col-sm-12 col-md-9">
 								<div class="row">
-									<div class="col-sm-6 col-md-4">
-										<div class="footer-about-us">
-											<h5 class="footer-title">About Us</h5>
-										</div>
-									</div>
 									<div class="col-sm-6 col-md-5 mt-30-xs">
 										<h5 class="footer-title">Quick Links</h5>
 										<ul class="footer-menu clearfix">
@@ -440,12 +435,6 @@ include 'constants/check-login.php';
 										</ul>
 									</div>
 								</div>
-							</div>
-							<div class="col-sm-12 col-md-3 mt-30-sm">
-								<h5 class="footer-title">Contact</h5>
-								<p>Address : </p>
-								<p>Phone : <a href="tel:+"></a></p>
-								<p>Email : </p>
 							</div>
 						</div>
 					</div>

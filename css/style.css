@@ -65,17 +65,17 @@ Last change:    23/05/2015
     -ms-transition: all 0.1s ease-in-out 0s;
     -o-transition: all 0.1s ease-in-out 0s;
     transition: all 0.1s ease-in-out 0s;
-    min-height: 30px;
+    min-height: 20px;
 }
 
 .navbar.navbar-default {
     margin: 0;
-    padding: 20px 0;
+    padding: 10px 0;
     height: auto;
 }
 
 .logo-wrapper {
-    min-height: 20px;
+    min-height: 10px;
     float: left;
     margin: 0;
 }
@@ -100,7 +100,7 @@ Last change:    23/05/2015
 }
 
 .logo-wrapper {
-    width: 15%;
+    width: 5%;
 }
 
 .navbar-nav-wrapper {
@@ -338,7 +338,7 @@ ul.nav-mini li a {
 
 @media only screen and (max-width: 991px) {
     .logo-wrapper {
-        width: 50%;
+        width: 20%;
     }
     .navbar-nav-wrapper {
         width: 0%;
