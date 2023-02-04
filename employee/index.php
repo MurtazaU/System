@@ -213,88 +213,8 @@ if (isset($_REQUEST['update-resume'])) {
 
 										<div class="clear"></div>
 
-										<div class="col-sm-6 col-md-4">
 
-											<div class="form-group">
-												<label>Born</label>
-												<div class="row gap-5">
-													<div class="col-xs-3 col-sm-3">
-														<select name="date" required class="selectpicker form-control" data-live-search="false">
-															<option disabled value="">day</option>
-															<?php
-															$x = 1;
-
-															while ($x <= 31) {
-
-																if ($x < 10) {
-																	$x = "0$x";
-																	print '<option ';
-																	if ($mydate == $x) {
-																		print ' selected ';
-																	}
-																	print ' value="' . $x . '">' . $x . '</option>';
-																} else {
-																	print '<option ';
-																	if ($mydate == $x) {
-																		print ' selected ';
-																	}
-																	print ' value="' . $x . '">' . $x . '</option>';
-																}
-																$x++;
-															}
-															?>
-														</select>
-													</div>
-													<div class="col-xs-5 col-sm-5">
-														<select name="month" required class="selectpicker form-control" data-live-search="false">
-															<?php
-															$x = 1;
-
-															while ($x <= 12) {
-
-																if ($x < 10) {
-																	$x = "0$x";
-																	print '<option ';
-																	if ($mymonth == $x) {
-																		print ' selected ';
-																	}
-																	print ' value="' . $x . '">' . $x . '</option>';
-																} else {
-																	print '<option ';
-																	if ($mymonth == $x) {
-																		print ' selected ';
-																	}
-																	print ' value="' . $x . '">' . $x . '</option>';
-																}
-																$x++;
-															}
-															?>
-														</select>
-													</div>
-													<div class="col-xs-4 col-sm-4">
-														<select name="year" class="selectpicker form-control" data-live-search="false">
-															<?php
-															$x = date('Y');
-															$yr = 60;
-															$y2 = $x - $yr;
-															while ($x > $y2) {
-
-																print '<option ';
-																if ($myyear == $x) {
-																	print ' selected ';
-																}
-																print ' value="' . $x . '">' . $x . '</option>';
-																$x = $x - 1;
-															}
-															?>
-														</select>
-													</div>
-												</div>
-											</div>
-
-										</div>
-
-										<div class="col-sm-6 col-md-4">
+										<div class="col-sm-12 col-md-8">
 
 											<div class="form-group">
 												<label>Email</label>
@@ -324,24 +244,8 @@ if (isset($_REQUEST['update-resume'])) {
 
 										<div class="clear"></div>
 
-										<div class="col-sm-6 col-md-4">
 
-											<div class="form-group">
-												<label>Gender</label>
-												<select name="gender" required class="selectpicker show-tick form-control" data-live-search="false">
-													<option disabled value="">Select</option>
-													<option <?php if ($mygender == "Male") {
-																print ' selected ';
-															} ?> value="Male">Male</option>
-													<option <?php if ($mygender == "Female") {
-																print ' selected ';
-															} ?>value="Female">Female</option>
-												</select>
-											</div>
-
-										</div>
-
-										<div class="col-sm-6 col-md-4">
+										<div class="col-sm-12 col-md-8">
 
 											<div class="form-group">
 												<label>City/town</label>
