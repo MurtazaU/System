@@ -5290,7 +5290,7 @@ ul.admin-user-menu li.active a {
 .admin-section-title h2 {
     line-height: 1.2;
     margin-bottom: 15px;
-    text-transform: lowercase;
+    text-transform: capitalize;
     font-size: 34px;
     color: #656565;
 }
