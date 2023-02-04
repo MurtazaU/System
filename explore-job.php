@@ -225,7 +225,7 @@ if ($today_date > $conv_date) {
 
 
 					<div class="col-sm-12 col-md-12">
-						<a href="register.php?p=Employee" class="btn btn-facebook btn-block mb-5-xs">Register as Employee</a>
+						<a href="register.php?p=Employee" class="btn btn-facebook btn-block mb-5-xs">Register as Job Seeker</a>
 					</div>
 
 				</div>

@@ -129,7 +129,7 @@ include 'constants/check-login.php';
 
 					<div class="row gap-20">
 						<div class="col-sm-12 col-md-12">
-							<a href="register.php?p=Employee" class="btn btn-facebook btn-block mb-5-xs">Register as Employee</a>
+							<a href="register.php?p=Employee" class="btn btn-facebook btn-block mb-5-xs">Register as Job Seeker</a>
 						</div>
 
 					</div>
