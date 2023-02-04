@@ -282,7 +282,8 @@ if (isset($_REQUEST['update-resume'])) {
 
 											<div class="form-group">
 												<label>Country</label>
-												<select name="country" required class="selectpicker show-tick form-control" data-live-search="true">
+												<input type="text" disabled name="country" required class="form-control" value="United States">
+												<!-- <select name="country" required class="selectpicker show-tick form-control" data-live-search="true">
 													<option disabled value="">Select</option>
 													<?php
 													foreach ($result as $row) {
@@ -292,7 +293,7 @@ if (isset($_REQUEST['update-resume'])) {
 
 																																							} ?>
 
-												</select>
+												</select> -->
 											</div>
 
 										</div>

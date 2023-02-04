@@ -15,7 +15,7 @@ $street = ucwords($_POST['street']);
 $zip = ucwords($_POST['zip']);
 $about = $_POST['about'];
 $phone = $_POST['phone'];
-$country = $_POST['country'];
+$country = 'United States';
 
 try {
 	$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
