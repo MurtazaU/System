@@ -145,8 +145,8 @@ include 'constants/check-login.php';
 			<div class="hero" style="background-image:url('images/hero-header/01.jpg');">
 				<div class="container">
 
-					<h1>your bright future starts here now</h1>
-					<p>Finding your next job or career on JustEntryLevel Jobs</p>
+
+					<p>Find and apply to your next job</p>
 
 					<div class="main-search-form-wrapper">
 
@@ -230,72 +230,6 @@ include 'constants/check-login.php';
 			</div>
 
 
-			<div class="post-hero bg-light">
-
-				<div class="container">
-
-					<div class="process-item-wrapper mt-20">
-
-						<div class="row">
-
-							<div class="col-sm-4">
-
-								<div class="process-item clearfix">
-
-									<div class="icon">
-										<i class="flaticon-line-icon-set-magnification-lens"></i>
-									</div>
-
-									<div class="content">
-										<h5>01 / Search for jobs</h5>
-									</div>
-
-								</div>
-
-							</div>
-
-							<div class="col-sm-4">
-
-								<div class="process-item clearfix">
-
-									<div class="icon">
-										<i class="flaticon-line-icon-set-pencil"></i>
-									</div>
-
-									<div class="content">
-										<h5>02 / Apply at a Job</h5>
-									</div>
-
-								</div>
-
-							</div>
-
-							<div class="col-sm-4">
-
-								<div class="process-item clearfix">
-
-									<div class="icon">
-										<i class="flaticon-line-icon-set-calendar"></i>
-									</div>
-
-									<div class="content">
-										<h5>03 / Start Working</h5>
-									</div>
-
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-
-
 
 			<div class="bg-light pt-80 pb-80">
 
@@ -305,7 +239,7 @@ include 'constants/check-login.php';
 
 						<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 
-							<div class="section-title">
+							<div class="text-center">
 
 								<h2>Latest Jobs</h2>
 
