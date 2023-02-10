@@ -1,8 +1,6 @@
-<!doctype html>
-<html lang="en">
 <?php
-require '../constants/settings.php';
 require 'constants/check-login.php';
+require '../constants/settings.php';
 
 if ($user_online == "true") {
 	if ($myrole == "employer") {
@@ -26,6 +24,8 @@ if (isset($_GET['page'])) {
 	$page = 1;
 }
 ?>
+<!doctype html>
+<html lang="en">
 
 <head>
 

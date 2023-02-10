@@ -1,9 +1,7 @@
-<!doctype html>
-<html lang="en">
 <?php
-require 'constants/settings.php';
 require 'constants/check-login.php';
 require 'constants/db_config.php';
+require 'constants/settings.php';
 
 if (isset($_GET['jobid'])) {
 
@@ -86,7 +84,8 @@ if ($today_date > $conv_date) {
 	$jobexpired = false;
 }
 ?>
-
+<!doctype html>
+<html lang="en">
 
 <head>
 
@@ -340,7 +339,7 @@ if ($today_date > $conv_date) {
 																							}
 																						} else {
 
-																							print '<button class="btn btn-primary disabled btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-padlock"></i> Login to apply to this job</button>';
+																							print '<a href="./login.php"><button class="btn btn-primary btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-padlock"></i> Login to apply to this job</button></a>';
 																						}
 
 																									?>

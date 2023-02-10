@@ -1,8 +1,6 @@
-<!doctype html>
-<html lang="en">
 <?php
-require 'constants/settings.php';
 require 'constants/check-login.php';
+require 'constants/settings.php';
 require 'constants/db_config.php';
 
 if (isset($_GET['ref'])) {
@@ -64,6 +62,8 @@ if (isset($_GET['page'])) {
 	$page = 1;
 }
 ?>
+<!doctype html>
+<html lang="en">
 
 <head>
 

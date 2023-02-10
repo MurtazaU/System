@@ -1,8 +1,6 @@
-<!doctype html>
-<html lang="en">
 <?php
-require '../constants/settings.php';
 require 'constants/check-login.php';
+require '../constants/settings.php';
 
 if (isset($_GET['page'])) {
 	$page = $_GET['page'];
@@ -54,6 +52,8 @@ if (isset($_GET['jobid'])) {
 	}
 }
 ?>
+<!doctype html>
+<html lang="en">
 
 <head>
 

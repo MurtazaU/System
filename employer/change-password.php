@@ -1,8 +1,6 @@
-<!doctype html>
-<html lang="en">
 <?php
-include '../constants/settings.php';
 include 'constants/check-login.php';
+include '../constants/settings.php';
 
 if ($user_online == "true") {
 	if ($myrole == "employer") {
@@ -13,6 +11,8 @@ if ($user_online == "true") {
 	header("location:../");
 }
 ?>
+<!doctype html>
+<html lang="en">
 
 <head>
 

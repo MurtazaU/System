@@ -1,8 +1,6 @@
-<!doctype html>
-<html lang="en">
 <?php
-require 'constants/settings.php';
 require 'constants/check-login.php';
+require 'constants/settings.php';
 require 'constants/db_config.php';
 if (isset($_GET['empid'])) {
 	$empid = $_GET['empid'];
@@ -57,6 +55,8 @@ if (isset($_REQUEST['download-resume'])) {
 };
 
 ?>
+<!doctype html>
+<html lang="en">
 
 <head>
 

@@ -330,7 +330,7 @@ ul.nav-mini li a {
     -ms-transition: all 0.3s ease-in-out 0s;
     -o-transition: all 0.3s ease-in-out 0s;
     transition: all 0.3s ease-in-out 0s;
-    text-transform: lowercase;
+    text-transform: capitalize;
     letter-spacing: 1px;
 }
 

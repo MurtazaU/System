@@ -1,8 +1,6 @@
-<!doctype html>
-<html lang="en">
 <?php
-require '../constants/settings.php';
 require 'constants/check-login.php';
+require '../constants/settings.php';
 require '../constants/db_config.php';
 
 try {
@@ -41,6 +39,8 @@ if (isset($_REQUEST['update-resume'])) {
 	$sql->execute();
 }
 ?>
+<!doctype html>
+<html lang="en">
 
 <head>
 

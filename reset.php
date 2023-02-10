@@ -1,8 +1,6 @@
-<!doctype html>
-<html lang="en">
 <?php
-require 'constants/settings.php';
 require 'constants/check-login.php';
+require 'constants/settings.php';
 
 if (isset($_GET['token'])) {
 	$token = $_GET['token'];
@@ -11,6 +9,8 @@ if (isset($_GET['token'])) {
 }
 
 ?>
+<!doctype html>
+<html lang="en">
 
 <head>
 

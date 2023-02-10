@@ -1,8 +1,6 @@
-<!doctype html>
-<html lang="en">
 <?php
-require 'constants/settings.php';
 require 'constants/check-login.php';
+require 'constants/settings.php';
 $fromsearch = false;
 
 if (isset($_GET['search']) && $_GET['search'] == "✓") {
@@ -40,6 +38,8 @@ if (isset($_GET['country']) && ($_GET['category'])) {
 	$title = "Job List";
 }
 ?>
+<!doctype html>
+<html lang="en">
 
 <head>
 

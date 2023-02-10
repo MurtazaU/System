@@ -1,9 +1,9 @@
+<?php
+include 'constants/check-login.php';
+include 'constants/settings.php';
+?>
 <!doctype html>
 <html lang="en">
-<?php
-include 'constants/settings.php';
-include 'constants/check-login.php';
-?>
 
 <head>
 
